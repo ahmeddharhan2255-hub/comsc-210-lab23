@@ -19,6 +19,7 @@ int main() {
     srand(time(0));
     bool again;
     int choice = 0;
+    list<Goat> trip;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -37,15 +38,19 @@ int main() {
         choice = main_menu();
         
         if(choice == 1){
-            add_goat();
+            add_goat(trip, names, colors);
         }
 
         if(choice == 2){
-            delete_goat();
+            delete_goat(trip);
         }
 
         if(choice == 3){
-            display_trip();
+            display_trip(trip);
+        }
+
+        else{
+            cout << "Invalid Input! Try again!" << endl;
         }
 
     }
@@ -73,4 +78,16 @@ int main_menu(){
     }
 
     return n;
+}
+
+void display_trip(list<Goat> trip){
+    if
+}
+
+void add_goat(list<Goat> trip){
+
+}
+
+void delete_goat(list<Goat> trip, string names[], string colors[]){
+
 }
