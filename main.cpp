@@ -41,17 +41,14 @@ int main() {
             add_goat(trip, names, colors);
         }
 
-        if(choice == 2){
+        else if(choice == 2){
             delete_goat(trip);
         }
 
-        if(choice == 3){
+        else if(choice == 3){
             display_trip(trip);
         }
 
-        else{
-            cout << "Invalid Input! Try again!" << endl;
-        }
 
     }
 
@@ -101,12 +98,20 @@ void display_trip(list<Goat> trip){
 
 void delete_goat(list<Goat> &trip){
 
+    if(trip.empty()){
+        cout << "List is empty! Nothing to delete" << endl;
+    }
+
+    
+
+
+
 }
 
 void add_goat(list<Goat> &trip, string names[], string colors[]){
     int age = rand() % (MAX_AGE + 1);
-    string name = names[rand() % (SZ_NAMES + 1)];
-    string color = colors[rand() % (SZ_NAMES + 1)];
+    string name = names[rand() % (SZ_NAMES)];
+    string color = colors[rand() % (SZ_NAMES)];
 
     Goat g(name, age, color);
 
