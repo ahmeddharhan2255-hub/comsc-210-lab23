@@ -99,14 +99,16 @@ void display_trip(list<Goat> trip){
 
 }
 
-void delete_goat(list<Goat> trip){
+void delete_goat(list<Goat> &trip){
 
 }
 
-void add_goat(list<Goat> trip, string names[], string colors[]){
+void add_goat(list<Goat> &trip, string names[], string colors[]){
     int age = rand() % (MAX_AGE + 1);
     string name = names[rand() % (SZ_NAMES + 1)];
     string color = colors[rand() % (SZ_NAMES + 1)];
 
     Goat g(name, age, color);
+
+    trip.push_back(g);
 }
