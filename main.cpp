@@ -110,13 +110,14 @@ void delete_goat(list<Goat> &trip){
     for(auto it = trip.begin(); it != trip.end(); it++){
         if(count == goat_choice){
             trip.erase(it);
-            return;
+            
         }
 
         count++;
     }
 
     display_trip(trip);
+    return;
 
 }
 
@@ -137,7 +138,7 @@ int select_goat(list<Goat> trip){
 
     display_trip(trip);
 
-    cout << "Which goat would you like to select?" << endl;
+    cout << "Which goat would you like to select? ";
     cin >> goat_num;
 
     return goat_num;
