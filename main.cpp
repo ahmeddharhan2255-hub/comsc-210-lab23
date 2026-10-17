@@ -55,6 +55,9 @@ int main() {
 
 }
 
+//main_menu func displays options
+//arguments none
+//returns choice by user for menu
 int main_menu(){
     int n = 0;
         cout << endl;
@@ -73,11 +76,15 @@ int main_menu(){
         if (n < 1 || n > 4){
             cout << "Invalid Input. View options and try again" << endl;
             cout << "Choice -->";
+            cin >> n;
         }
 
     return n;
 }
 
+//Void function
+//Checks if empty; if not cout 
+//Returns nothing
 void display_trip(list<Goat> trip){
     int val = 1;
     if(trip.empty()){
@@ -90,13 +97,16 @@ void display_trip(list<Goat> trip){
         cout << val;
         cout  << "] ";
         cout << g.get_name();
-        cout << " (" << g.get_age() << ",";
+        cout << " (" << g.get_age() << ", ";
         cout << g.get_color() << ")"<< endl;
         val += 1;
     }
 
 }
 
+//void delete goat that deletes selected goat
+//arguments: trip
+//reutrns none
 void delete_goat(list<Goat> &trip){
 
     if(trip.empty()){
@@ -104,23 +114,26 @@ void delete_goat(list<Goat> &trip){
         return;
     }
 
+    //Uses select_goat function to delete goat
     int goat_choice = select_goat(trip);
     int count = 1;
 
     for(auto it = trip.begin(); it != trip.end(); it++){
         if(count == goat_choice){
             trip.erase(it);
-            
+            cout << endl;
+            display_trip(trip);
+            return;
         }
 
         count++;
     }
 
-    display_trip(trip);
-    return;
-
 }
 
+//void add_goat function
+//arguments: list, string of names and colors to rand select
+//returns nothing only updates list
 void add_goat(list<Goat> &trip, string names[], string colors[]){
     int age = rand() % (MAX_AGE + 1);
     string name = names[rand() % SZ_NAMES];
@@ -133,6 +146,9 @@ void add_goat(list<Goat> &trip, string names[], string colors[]){
     display_trip(trip);
 }
 
+//select goat function
+//arguments: list
+//returns: goat position
 int select_goat(list<Goat> trip){
     int goat_num;
 
