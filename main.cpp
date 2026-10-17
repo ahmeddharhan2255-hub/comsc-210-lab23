@@ -18,6 +18,7 @@ int main_menu();
 int main() {
     srand(time(0));
     bool again;
+    int choice = 0;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -31,9 +32,45 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    while(choice != 4){
+
+        choice = main_menu();
+        
+        if(choice == 1){
+            add_goat();
+        }
+
+        if(choice == 2){
+            delete_goat();
+        }
+
+        if(choice == 3){
+            display_trip();
+        }
+
+    }
 
 
 
     return 0;
 }
 
+int main_menu(){
+    int n = 0;
+    while(n != 4){
+        cout << "*** GOAT MANAGER 3001 ***" << endl;
+        cout << "[1] Add a goat" << endl;
+        cout << "[2] Delete a goat" << endl;
+        cout << "[3] List goats" << endl;
+        cout << "[4] Quit" << endl;
+        cout << "Choice ---> ";
+        cin >> n;
+
+        if (n < 1 || n > 4){
+            cout << "Invalid Input. View options and try again" << endl;
+        }
+
+    }
+
+    return n;
+}
