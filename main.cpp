@@ -34,8 +34,6 @@ int main() {
     fin1.close();
 
     while(choice != 4){
-
-        choice = main_menu();
         
         if(choice == 1){
             add_goat(trip, names, colors);
@@ -49,6 +47,8 @@ int main() {
             display_trip(trip);
         }
 
+
+        choice = main_menu();
 
     }
 
@@ -100,10 +100,20 @@ void delete_goat(list<Goat> &trip){
 
     if(trip.empty()){
         cout << "List is empty! Nothing to delete" << endl;
+        return;
     }
 
     int goat_choice = select_goat(trip);
+    int count = 1;
 
+    for(auto it = trip.begin(); it != trip.end(); it++){
+        if(goat_choice == count){
+            trip.erase(it);
+            return;
+        }
+
+        count++;
+    }
 
 }
 
@@ -115,6 +125,8 @@ void add_goat(list<Goat> &trip, string names[], string colors[]){
     Goat g(name, age, color);
 
     trip.push_back(g);
+
+    display_trip(trip);
 }
 
 int select_goat(list<Goat> trip){
