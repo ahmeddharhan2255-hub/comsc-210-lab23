@@ -34,7 +34,9 @@ int main() {
     fin1.close();
 
     while(choice != 4){
-        
+
+        choice = main_menu();
+
         if(choice == 1){
             add_goat(trip, names, colors);
         }
@@ -47,9 +49,6 @@ int main() {
             display_trip(trip);
         }
 
-
-        choice = main_menu();
-
     }
 
 
@@ -59,7 +58,7 @@ int main() {
 
 int main_menu(){
     int n = 0;
-    while(n != 4){
+
         cout << "*** GOAT MANAGER 3001 ***" << endl;
         cout << "[1] Add a goat" << endl;
         cout << "[2] Delete a goat" << endl;
@@ -70,9 +69,9 @@ int main_menu(){
 
         if (n < 1 || n > 4){
             cout << "Invalid Input. View options and try again" << endl;
+            cout << "Choice -->";
         }
 
-    }
 
     return n;
 }
@@ -86,11 +85,11 @@ void display_trip(list<Goat> trip){
    
     for(Goat g: trip){
         cout << "[";
-        cout << val << endl;
-        cout  << "]";
-        cout << g.get_name() << endl;
-        cout << g.get_age() << endl;
-        cout << g.get_color() << endl;
+        cout << val;
+        cout  << "] ";
+        cout << g.get_name() <<;
+        cout << "(" << g.get_age() << ",";
+        cout << g.get_color() << ")"<< endl;
         val += 1;
     }
 
