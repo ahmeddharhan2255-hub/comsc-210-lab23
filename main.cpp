@@ -51,14 +51,14 @@ int main() {
 
     }
 
-
-
     return 0;
+
 }
 
 int main_menu(){
     int n = 0;
-
+        cout << endl;
+        cout << endl;
         cout << "*** GOAT MANAGER 3001 ***" << endl;
         cout << "[1] Add a goat" << endl;
         cout << "[2] Delete a goat" << endl;
@@ -67,11 +67,13 @@ int main_menu(){
         cout << "Choice ---> ";
         cin >> n;
 
+        cout << endl;
+        cout << endl;
+
         if (n < 1 || n > 4){
             cout << "Invalid Input. View options and try again" << endl;
             cout << "Choice -->";
         }
-
 
     return n;
 }
@@ -87,8 +89,8 @@ void display_trip(list<Goat> trip){
         cout << "[";
         cout << val;
         cout  << "] ";
-        cout << g.get_name() <<;
-        cout << "(" << g.get_age() << ",";
+        cout << g.get_name();
+        cout << " (" << g.get_age() << ",";
         cout << g.get_color() << ")"<< endl;
         val += 1;
     }
@@ -106,13 +108,15 @@ void delete_goat(list<Goat> &trip){
     int count = 1;
 
     for(auto it = trip.begin(); it != trip.end(); it++){
-        if(goat_choice == count){
+        if(count == goat_choice){
             trip.erase(it);
             return;
         }
 
         count++;
     }
+
+    display_trip(trip);
 
 }
 
