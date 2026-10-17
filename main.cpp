@@ -96,7 +96,7 @@ void display_trip(list<Goat> trip){
 
 }
 
-void delete_goat(list<Goat> trip){
+void delete_goat(list<Goat> &trip){
 
     if(trip.empty()){
         cout << "List is empty! Nothing to delete" << endl;
@@ -105,22 +105,19 @@ void delete_goat(list<Goat> trip){
     int goat_choice = select_goat(trip);
 
 
-
-
-
 }
 
 void add_goat(list<Goat> &trip, string names[], string colors[]){
     int age = rand() % (MAX_AGE + 1);
-    string name = names[rand() % (SZ_NAMES)];
-    string color = colors[rand() % (SZ_NAMES)];
+    string name = names[rand() % SZ_NAMES];
+    string color = colors[rand() % SZ_COLORS];
 
     Goat g(name, age, color);
 
     trip.push_back(g);
 }
 
-int select_goat(list<Goat> &trip){
+int select_goat(list<Goat> trip){
     int goat_num;
 
     display_trip(trip);
@@ -128,5 +125,6 @@ int select_goat(list<Goat> &trip){
     cout << "Which goat would you like to select?" << endl;
     cin >> goat_num;
 
+    return goat_num;
 
 }
