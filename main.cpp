@@ -81,7 +81,17 @@ int main_menu(){
 }
 
 void display_trip(list<Goat> trip){
-    if
+    if(trip.empty()){
+        cout << "List is empty!" << endl;
+        return;
+    }
+   
+    for(Goat g: trip){
+        cout << g.get_name() << endl;
+        cout << g.get_age() << endl;
+        cout << g.get_color() << endl;
+    }
+
 }
 
 void add_goat(list<Goat> trip){
